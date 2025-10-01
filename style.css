@@ -1,0 +1,525 @@
+/*==================================*\
+  #ROOT & RESET
+\*==================================*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* COLORS (Modernized Palette) */
+  --primary-bg: hsl(0, 0%, 0%);     /* Dark Blue-Gray Background */
+  --secondary-bg: hsl(210, 15%, 15%);  /* Slightly Lighter Card/Sidebar BG */
+  --card-hover-bg: hsl(143, 100%, 58%); /* Hover Card BG */
+  --accent-color: hsl(139, 99%, 53%); /* Bright Cyan/Blue Accent */
+  --text-color: hsl(0, 0%, 95%);       /* Light Text */
+  --subtext-color: hsl(0, 0%, 70%);    /* Subdued Text */
+
+  /* TYPOGRAPHY */
+  --ff-poppins: 'Poppins', sans-serif;
+  --fs-h2: 2.8rem;
+  --fs-h4: 1.8rem;
+  --fs-body: 1.6rem;
+  --fs-small: 1.4rem;
+
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  /* SPACING & RADIUS */
+  --section-padding: 30px;
+  --border-radius: 10px;
+
+  /* SHADOW & TRANSITION */
+  --shadow-1: 0 10px 30px hsla(210, 20%, 5%, 0.5);
+  --transition-default: 0.3s ease-in-out;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-body);
+  min-height: 100vh;
+  display: flex;
+}
+
+/*==================================*\
+  #BASE STYLE
+\*==================================*/
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: color var(--transition-default);
+}
+
+a:hover {
+  color: hsl(200, 100%, 70%);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  color: var(--text-color);
+}
+
+.h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-medium);
+  color: var(--text-color);
+}
+
+/*==================================*\
+  #SIDEBAR (Minimal & Fixed)
+\*==================================*/
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100%;
+  background-color: var(--secondary-bg);
+  box-shadow: var(--shadow-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 10;
+}
+
+.social-list {
+  padding: 20px 0;
+}
+
+.social-item {
+  margin-bottom: 20px;
+}
+
+.social-link {
+  color: var(--subtext-color);
+  font-size: 2.6rem;
+  transition: color var(--transition-default);
+}
+
+.social-link:hover {
+  color: var(--accent-color);
+}
+
+/*==================================*\
+  #MAIN CONTENT
+\*==================================*/
+
+.main-content {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+  padding: 0 20px;
+  min-height: 100vh;
+}
+
+article {
+  padding: var(--section-padding);
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  margin: 20px auto;
+  box-shadow: var(--shadow-1);
+}
+
+/*==================================*\
+  #ABOUT ME
+\*==================================*/
+
+.about-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text {
+  flex-grow: 1;
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: var(--subtext-color);
+}
+
+.about-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--accent-color);
+  box-shadow: var(--shadow-1);
+  flex-shrink: 0;
+}
+
+.download-cv-btn {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  padding: 12px 25px;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  margin-top: 20px;
+  transition: opacity var(--transition-default);
+}
+
+.download-cv-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px hsla(200, 100%, 60%, 0.5);
+}
+
+/*==================================*\
+  #TIMELINE (EDUCATION HISTORY)
+\*==================================*/
+
+.timeline {
+  margin-top: 40px;
+}
+
+.timeline-list {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.timeline-list:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--primary-bg);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 30px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -8px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  border: 4px solid var(--secondary-bg);
+}
+
+.timeline-item span {
+  color: var(--accent-color);
+  font-weight: var(--fw-medium);
+  display: block;
+  font-size: var(--fs-small);
+  margin: 5px 0;
+}
+
+.timeline-text {
+  color: var(--subtext-color);
+  font-size: var(--fs-small);
+}
+
+/*==================================*\
+  #PROJECTS (SERVICE)
+\*==================================*/
+
+.projects {
+  margin-top: 40px;
+}
+
+.service-list {
+  display: grid;
+  gap: 20px;
+}
+
+.service-item {
+  background-color: var(--primary-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  transition: transform var(--transition-default), box-shadow var(--transition-default);
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px hsla(210, 20%, 5%, 0.8);
+}
+
+.service-icon-box {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--accent-color);
+}
+
+.service-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-item-title {
+  margin-bottom: 5px;
+}
+
+.service-item-text {
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--subtext-color);
+}
+
+/*==================================*\
+  #CERTIFICATIONS & CV (Grid Layout)
+\*==================================*/
+
+.certifications {
+  margin-top: 40px;
+}
+
+/* Default: 2 kolom di layar yang lebih kecil */
+.sertifikasi-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.sertifikasi-item {
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.content-card {
+  background-color: var(--primary-bg);
+  border: 1px solid var(--secondary-bg);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: border-color var(--transition-default);
+}
+
+.content-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px hsla(200, 100%, 60%, 0.3);
+}
+
+.sertifikasi-avatar-box {
+  width: 100%;
+  /* Tinggi seragam untuk gambar sertifikat/CV */
+  height: 120px; 
+  margin-bottom: 8px;
+  border-radius: var(--border-radius);
+  overflow:;
+  border: 1px solid var(--secondary-bg);
+}
+
+.sertifikasi-avatar-box img {
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.sertifikasi-item-title {
+  font-size: var(--fs-small);
+  word-wrap: break-word;
+  color: var(--text-color);
+}
+
+/* KHUSUS CV PREVIEW: Memastikan CV tampil 1 kolom di semua ukuran untuk fokus */
+.cv-preview .sertifikasi-list {
+    grid-template-columns: 1fr; 
+    max-width: 400px; 
+    margin: 0 auto;
+}
+
+/*==================================*\
+  #CONTACT SECTION (Vertical Layout)
+\*==================================*/
+
+.contact-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--secondary-bg);
+}
+
+.contact-info-list {
+    padding-top: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--primary-bg);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    /* Memastikan setiap item mengambil lebar 50% (vertikal) */
+    width: 100%; 
+    margin-bottom: 20px; 
+}
+
+.contact-icon {
+    font-size: 2.4rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    margin-bottom: 5px;
+    font-size: var(--fs-small);
+    color: var(--accent-color);
+}
+
+.contact-details p {
+    font-size: 1.5rem;
+    color: var(--subtext-color);
+    word-wrap: break-word;
+}
+
+/*==================================*\
+  #CERTIFICATE MODAL
+\*==================================*/
+
+#sertifikatModal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.95);
+}
+
+#sertifikatModalImg {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 800px;
+  border-radius: var(--border-radius);
+  cursor: zoom-in;
+  transition: transform 0.3s ease-in-out;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: var(--text-color);
+  font-size: 4.5rem;
+  font-weight: bold;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+#sertifikatModalImg.zoomed {
+    transform: scale(1.5);
+    cursor: zoom-out;
+}
+
+/*==================================*\
+  #MEDIA QUERIES (Responsiveness)
+\*==================================*/
+
+/* Tablet and Laptop Adjustments (768px - 1024px) */
+@media (min-width: 768px) {
+    .about-main {
+        flex-direction: row;
+    }
+    .about-photo {
+        margin: 0;
+    }
+    .service-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    /* Memaksa 3 kolom sertifikat yang seragam */
+    .certifications:not(.cv-preview) .sertifikasi-list {
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+}
+
+/* Full Desktop Layout (1024px+) */
+@media (min-width: 1024px) {
+    .main-content {
+        padding: 0 40px;
+        width: calc(100% - 70px);
+    }
+    article {
+        max-width: 1200px;
+        margin: 40px auto;
+    }
+    /* Memastikan 3 kolom sertifikat yang seragam */
+    .certifications:not(.cv-preview) .sertifikasi-list {
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+}
+
+/* Mobile Adjustments (under 767px) */
+@media (max-width: 767px) {
+    .sidebar {
+        /* Pindahkan sidebar ke atas dan buat horizontal di mobile */
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .social-list {
+        flex-direction: row;
+        gap: 25px;
+        padding: 10px 0;
+    }
+    .social-item {
+        margin-bottom: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .about-main {
+        gap: 20px;
+    }
+    
+    .sertifikasi-list {
+         /* Memastikan tetap terbaca di layar sempit, minimal 2 kolom */
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    }
+}
